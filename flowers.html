@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pour Toi, Ma Aude</title>
+<style>
+  /* Pink background with gradient for softness */
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffd1dc 0%, #ff8da1 100%);
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+  }
+
+  /* Clouds container */
+  .clouds {
+    position: absolute;
+    top: 0; left: 0; right:0; bottom: 0;
+    background: transparent;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Cloud style */
+  .cloud {
+    position: absolute;
+    background: #fff;
+    background: radial-gradient(ellipse at center, #fff 50%, #fcd9e6 90%);
+    border-radius: 50% / 50%;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px #fff7f9);
+    animation: cloudMove linear infinite;
+  }
+
+  /* Different sizes for clouds */
+  .cloud1 {
+    width: 200px;
+    height: 100px;
+    top: 10%;
+    left: -220px;
+    animation-duration: 60s;
+  }
+
+  .cloud2 {
+    width: 150px;
+    height: 80px;
+    top: 40%;
+    left: -170px;
+    animation-duration: 45s;
+  }
+
+  .cloud3 {
+    width: 250px;
+    height: 120px;
+    top: 70%;
+    left: -270px;
+    animation-duration: 70s;
+  }
+
+  @keyframes cloudMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(110vw); }
+  }
+
+  /* Letter container */
+  .letter-container {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    background: #fff8f9;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 30px 25px;
+    box-sizing: border-box;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.8) translateY(40px);
+    animation: letterAppear 1.2s forwards;
+    animation-delay: 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @keyframes letterAppear {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Letter title */
+  .letter-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ff5a7a;
+    user-select: none;
+  }
+
+  /* Sliding words wrapper */
+  .slider-wrapper {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+
+  /* Sliding text container */
+  .slider {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    animation: slideWords 10s linear infinite;
+  }
+
+  /* Each sliding word styling */
+  .slider span {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ff4666;
+    user-select: none;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  @keyframes slideWords {
+    0% { top: 0; }
+    20% { top: 0; }
+    25% { top: -60px; }
+    45% { top: -60px; }
+    50% { top: -120px; }
+    70% { top: -120px; }
+    75% { top: -180px; }
+    95% { top: -180px; }
+    100% { top: 0; }
+  }
+
+  /* Footer text */
+  .footer-text {
+    margin-top: 35px;
+    font-size: 1rem;
+    color: #ffffffcc;
+    font-style: italic;
+    user-select: none;
+  }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="clouds">
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+  </div>
+
+  <div class="letter-container" aria-label="Lettre d'amour">
+    <div class="letter-title">Pour toi, ma Aude...</div>
+    <div class="slider-wrapper" aria-live="polite" aria-atomic="true">
+      <div class="slider" id="slider">
+        <span>Je T'aime Jeune Reine</span>
+        <span>ma douce mélodie</span>
+        <span>mon étoile du soir</span>
+        <span>pour toujours et à jamais</span>
+          <span>Réviens moi vite !!!!</span>
+      </div>
+    </div>
+    <div class="footer-text">- Avec tout mon coeur 💖</div>
+  </div>
+
+<script>
+  // No extra JavaScript needed as CSS handles animation timing for sliding words and letter appearance.
+  // Could enhance with fade or letter-by-letter text if desired.
+</script>
+</body>
+</html>
+
